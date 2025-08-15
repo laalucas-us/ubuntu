@@ -11,9 +11,9 @@ echo "Using ttyd password: $USER_PASSWORD"
 
 # 启动 ttyd 后台
 if [ -f "/app/index.html" ]; then
-    /usr/local/bin/ttyd -p 7860 --index /app/index.html --credential "admin:$USER_PASSWORD" bash &
+    /usr/local/bin/ttyd -p 7860 -b 0.0.0.0 --index /app/index.html --credential "admin:$USER_PASSWORD" bash &
 else
-    /usr/local/bin/ttyd -p 7860 --credential "admin:$USER_PASSWORD" bash &
+    /usr/local/bin/ttyd -p 7860 -b 0.0.0.0 --credential "admin:$USER_PASSWORD" bash &
 fi
 
 # 启动 Cloudflare Tunnel（仅当 TOKEN 存在）
